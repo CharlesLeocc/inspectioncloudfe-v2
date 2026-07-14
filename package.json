@@ -1,0 +1,39 @@
+{
+  "name": "inspectioncloudfe-v2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "gen:color-map": "node scripts/generate-color-map.cjs",
+    "lint:style": "stylelint \"src/**/*.{css,less,vue}\"",
+    "lint:style:fix": "stylelint \"src/**/*.{css,less,vue}\" --fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@unocss/preset-attributify": "^66.7.5",
+    "element-plus": "^2.14.3",
+    "less": "^4.6.7",
+    "unocss": "^66.7.5",
+    "unplugin-auto-import": "^21.0.0",
+    "unplugin-vue-components": "^32.1.0",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "postcss-html": "^1.8.1",
+    "postcss-less": "^6.0.0",
+    "stylelint": "^17.14.0",
+    "stylelint-config-standard": "^40.0.0",
+    "vite": "^8.1.1"
+  },
+  "lint-staged": {
+    "src/**/*.{css,less,vue}": [
+      "stylelint --fix"
+    ]
+  }
+}

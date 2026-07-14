@@ -1,0 +1,44 @@
+// ==========================================================================
+// 间距/圆角/阴影/层级 Design Token
+// 断点策略：产品定位为 PC 端大屏应用，最小分辨率 1920x1080，最大适配到 4K(3840x2160)，
+// 不做移动端/窄屏适配，因此仅保留极少量分辨率节点用于个别场景微调，
+// 不建立完整的 sm/md/lg 移动优先断点体系。
+// ==========================================================================
+
+// 间距（4px 基准网格）
+@spacing-1: 4px;
+@spacing-2: 8px;
+@spacing-3: 12px;
+@spacing-4: 16px;
+@spacing-5: 20px;
+@spacing-6: 24px;
+@spacing-8: 32px;
+
+// 圆角
+@radius-sm: 2px;
+@radius-base: 4px;
+@radius-lg: 8px;
+@radius-round: 999px;
+
+// 阴影
+@shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+@shadow-base: 0 2px 8px rgba(0, 0, 0, 0.08);
+@shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+// 层级
+@z-index-dropdown: 1000;
+@z-index-sticky: 1100;
+@z-index-fixed: 1200;
+@z-index-modal-mask: 1300;
+@z-index-modal: 1301;
+@z-index-popper: 2000;
+@z-index-toast: 3000;
+
+// 分辨率节点（仅用于个别页面的少量样式差异化，不做整体响应式布局）
+@screen-fhd: 1920px; // 最小基准分辨率
+@screen-2k: 2560px;
+@screen-4k: 3840px; // 最大适配分辨率
+
+// 大屏可视化设计基准（用于等比例缩放方案，见 src/utils/screenScale.js）
+@design-width: 1920px;
+@design-height: 1080px;

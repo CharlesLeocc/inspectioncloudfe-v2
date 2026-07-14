@@ -1,0 +1,22 @@
+{
+  "#165dff": "--color-primary",
+  "#4080ff": "--color-primary-hover",
+  "#0e42d2": "--color-primary-active",
+  "#94bfff": "--color-primary-disabled",
+  "#e8f3ff": "--color-primary-bg",
+  "#00b42a": "--color-success",
+  "#e8ffea": "--color-success-bg",
+  "#ff7d00": "--color-warning",
+  "#fff7e8": "--color-warning-bg",
+  "#f53f3f": "--color-danger",
+  "#ffece8": "--color-danger-bg",
+  "#86909c": "--color-text-tertiary",
+  "#f2f3f5": "--color-bg-page",
+  "#1d2129": "--color-text-primary",
+  "#4e5969": "--color-text-secondary",
+  "#c9cdd4": "--color-text-disabled",
+  "#ffffff": "--color-white",
+  "#e5e6eb": "--color-border",
+  "rgba(0, 0, 0, 0.5)": "--color-bg-mask",
+  "#000000": "--color-black"
+}

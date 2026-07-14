@@ -1,0 +1,43 @@
+// ==========================================================================
+// Element Plus 变量对齐
+//
+// 只做「变量映射」，不写针对具体组件的覆盖样式（除非产品有强制定制需求）。
+// 因为映射的是 CSS 变量（var(--color-xxx)），会自动跟随 data-theme 切换，
+// 新增主题时无需修改本文件。
+// ==========================================================================
+
+:root {
+  --el-color-primary: var(--color-primary);
+  --el-color-primary-light-3: var(--color-primary-hover);
+  --el-color-primary-light-5: var(--color-primary-disabled);
+  --el-color-primary-light-9: var(--color-primary-bg);
+  --el-color-success: var(--color-success);
+  --el-color-success-light-9: var(--color-success-bg);
+  --el-color-warning: var(--color-warning);
+  --el-color-warning-light-9: var(--color-warning-bg);
+  --el-color-danger: var(--color-danger);
+  --el-color-danger-light-9: var(--color-danger-bg);
+  --el-color-error: var(--color-danger);
+  --el-color-info: var(--color-info);
+  --el-color-info-light-9: var(--color-info-bg);
+  --el-text-color-primary: var(--color-text-primary);
+  --el-text-color-regular: var(--color-text-secondary);
+  --el-text-color-secondary: var(--color-text-tertiary);
+  --el-text-color-placeholder: var(--color-text-disabled);
+  --el-text-color-disabled: var(--color-text-disabled);
+  --el-border-color: var(--color-border);
+  --el-border-color-light: var(--color-border-light);
+  --el-border-color-lighter: var(--color-border-light);
+  --el-border-radius-base: var(--radius-base);
+  --el-border-radius-small: var(--radius-sm);
+  --el-border-radius-round: var(--radius-round);
+  --el-bg-color: var(--color-bg-container);
+  --el-bg-color-page: var(--color-bg-page);
+  --el-bg-color-overlay: var(--color-bg-container);
+  --el-mask-color: var(--color-bg-mask);
+  --el-font-family: var(--font-family-base);
+  --el-font-size-base: var(--font-size-base);
+  --el-box-shadow: var(--shadow-base);
+  --el-box-shadow-light: var(--shadow-sm);
+  --el-box-shadow-dark: var(--shadow-lg);
+}
