@@ -2,7 +2,7 @@
 // 从 src/styles/tokens/color.less 生成 hex 色值 -> CSS 变量名 的映射表
 // 供 stylelint 自定义规则（stylelint-rules/no-hardcoded-color.cjs）读取使用
 //
-// 映射规则：token 文件里的 @color-primary: #165dff; 
+// 映射规则：token 文件里的 @color-primary: #165dff;
 //          对应 theme 层输出的 CSS 变量 --color-primary
 //          （两者变量名后缀完全一致，只是前缀 @ 换成 --，详见 src/styles/theme/light.less）
 //

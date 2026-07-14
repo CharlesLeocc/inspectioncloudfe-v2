@@ -1,13 +1,13 @@
 <script setup>
-import { ref } from 'vue'
-import { THEME_LIST, getCurrentTheme, setTheme } from '@/styles/theme'
+  import { ref } from 'vue'
+  import { THEME_LIST, getCurrentTheme, setTheme } from '@/styles/theme'
 
-const currentTheme = ref(getCurrentTheme())
+  const currentTheme = ref(getCurrentTheme())
 
-const handleThemeChange = (themeKey) => {
-  setTheme(themeKey)
-  currentTheme.value = themeKey
-}
+  const handleThemeChange = (themeKey) => {
+    setTheme(themeKey)
+    currentTheme.value = themeKey
+  }
 </script>
 
 <template>
@@ -37,10 +37,10 @@ const handleThemeChange = (themeKey) => {
 </template>
 
 <style scoped lang="less">
-.app-container {
-  padding: 24px;
-  min-height: 100vh;
-  background-color: var(--color-primary-hover);
-  border: 1px solid var(--color-border);
-}
+  .app-container {
+    padding: 24px;
+    min-height: 100vh;
+    background-color: var(--color-primary-hover);
+    border: 1px solid var(--color-border);
+  }
 </style>
