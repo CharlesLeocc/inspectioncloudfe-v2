@@ -41,5 +41,6 @@ const handleThemeChange = (themeKey) => {
   padding: 24px;
   min-height: 100vh;
   background-color: var(--color-primary-hover);
+  border: 1px solid var(--color-border);
 }
 </style>
