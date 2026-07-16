@@ -44,6 +44,52 @@ MasterGo 导出的变量 CSS 是设计源产物，必须保留原始颜色值。
 
 开发启动和生产构建前执行 `tokens:validate`，检查生成文件是否缺失或过期；Husky pre-commit 先校验 Token 一致性，再由 lint-staged 对 Vue、CSS、Less 和 JavaScript 等暂存文件分类执行 Stylelint、ESLint 和 Prettier。
 
+方案流程：
+
+```mermaid
+flowchart TD
+  subgraph S1["设计变量同步"]
+    A["MasterGo维护Variables"] --> B["导出标准CSS文件"]
+    B --> C["执行tokens:sync"]
+    C --> D{"Token结构校验是否通过"}
+    D -->|"否"| E["修正MasterGo变量并重新导出"]
+    E --> B
+    D -->|"是"| F["生成design-tokens.css、themes.js和color-map.json"]
+  end
+
+  subgraph S2["运行时消费"]
+    F --> G["全局样式加载design-tokens.css"]
+    G --> H["应用初始化data-theme"]
+    H --> I["业务CSS、Less和Vue使用CSS变量"]
+  end
+
+  subgraph S3["开发实时检查"]
+    I --> J["Stylelint检查硬编码颜色"]
+    J --> K{"颜色映射结果"}
+    K -->|"唯一匹配"| L["自动替换为对应CSS变量"]
+    K -->|"多个匹配"| M["按业务语义手动选择变量"]
+    K -->|"未匹配"| N["在MasterGo新增Token或改用已有变量"]
+    L --> O["代码进入Git暂存区"]
+    M --> J
+    N --> A
+  end
+
+  subgraph S4["启动、构建与提交门禁"]
+    F --> P["predev或prebuild执行tokens:validate"]
+    P --> Q{"生成物是否一致"}
+    Q -->|"否"| C
+    Q -->|"是"| R["允许启动或生产构建"]
+    O --> S["Husky pre-commit"]
+    S --> T["执行tokens:validate"]
+    T --> U{"生成物是否一致"}
+    U -->|"否"| C
+    U -->|"是"| V["lint-staged分类执行质量检查"]
+    V --> W{"ESLint、Stylelint和Prettier是否通过"}
+    W -->|"否"| I
+    W -->|"是"| X["允许提交"]
+  end
+```
+
 使用场景：设计变量数量较多、存在主题切换、设计变更频繁，需要统一 Vue、Less、CSS 校验，并希望在不引入大型 Token 平台的前提下建立自动化治理的 Vue 3 项目。
 
 方案四：引入 DTCG 中间格式与 Style Dictionary
