@@ -38,10 +38,9 @@
 
 <style scoped lang="less">
   .app-container {
-    padding: 24px;
+    padding: 22px;
     min-height: 100vh;
     background-color: var(--color-primary-hover);
     border: 1px solid var(--color-border);
-    color: var(--样式集合-填充-深2-1b2638);
   }
 </style>
