@@ -3,3 +3,4 @@ node_modules
 public
 package-lock.json
 stylelint-rules/color-map.json
+src/styles/generated/**

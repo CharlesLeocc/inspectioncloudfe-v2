@@ -1,10 +1,9 @@
 // ==========================================================================
 // 全局样式入口，只在 src/main.js 中引入一次
-// 引入顺序：主题变量 -> reset -> element-plus 变量对齐
+// 引入顺序：MasterGo 生成变量 -> reset -> Element Plus 变量桥接
 // mixins.less 通过 vite.config.js additionalData 全局注入，此处无需再引入
 // ==========================================================================
 
-@import url('./theme/light.less');
-@import url('./theme/dark.less');
+@import url('./generated/design-tokens.css');
 @import url('./reset.less');
 @import url('./element/index.less');

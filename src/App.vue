@@ -42,5 +42,6 @@
     min-height: 100vh;
     background-color: var(--color-primary-hover);
     border: 1px solid var(--color-border);
+    color: var(--样式集合-填充-深2-1b2638);
   }
 </style>

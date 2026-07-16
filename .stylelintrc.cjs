@@ -19,13 +19,7 @@ module.exports = {
       files: ['**/*.less'],
       customSyntax: 'postcss-less',
     },
-    {
-      // tokens/theme 是色值的定义层（token 的右值本身），不参与"禁止硬编码色值"检查
-      files: ['**/styles/tokens/**', '**/styles/theme/**'],
-      rules: {
-        'custom/no-hardcoded-color': null,
-      },
-    },
   ],
-  ignoreFiles: ['**/node_modules/**', 'dist/**'],
+  // 生成目录是 MasterGo 导出的只读产物，由 tokens:validate 单独校验
+  ignoreFiles: ['**/node_modules/**', 'dist/**', 'src/styles/generated/**', 'scripts/**'],
 }

@@ -5,7 +5,13 @@ import globals from 'globals'
 
 export default [
   {
-    ignores: ['dist/**', 'node_modules/**', 'public/**', 'stylelint-rules/color-map.json'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'public/**',
+      'src/styles/generated/**',
+      'stylelint-rules/color-map.json',
+    ],
   },
 
   js.configs.recommended,

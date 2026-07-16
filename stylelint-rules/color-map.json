@@ -1,22 +1,47 @@
 {
-  "#165dff": "--color-primary",
-  "#4080ff": "--color-primary-hover",
-  "#0e42d2": "--color-primary-active",
-  "#94bfff": "--color-primary-disabled",
-  "#e8f3ff": "--color-primary-bg",
-  "#00b42a": "--color-success",
-  "#e8ffea": "--color-success-bg",
-  "#ff7d00": "--color-warning",
-  "#fff7e8": "--color-warning-bg",
-  "#f53f3f": "--color-danger",
-  "#ffece8": "--color-danger-bg",
-  "#86909c": "--color-text-tertiary",
-  "#f2f3f5": "--color-bg-page",
-  "#1d2129": "--color-text-primary",
-  "#4e5969": "--color-text-secondary",
-  "#c9cdd4": "--color-text-disabled",
-  "#ffffff": "--color-white",
-  "#e5e6eb": "--color-border",
-  "rgba(0, 0, 0, 0.5)": "--color-bg-mask",
-  "#000000": "--color-black"
+  "#0f172a": [
+    "--样式集合-填充-深1-0f172a"
+  ],
+  "#127fff": [
+    "--样式集合-填充-主蓝-hover色"
+  ],
+  "#144680": [
+    "--样式集合-填充-选中-144680"
+  ],
+  "#1b2638": [
+    "--样式集合-填充-深2-1b2638"
+  ],
+  "#22599b": [
+    "--样式集合-填充-主蓝-禁用色"
+  ],
+  "#283242": [
+    "--样式集合-填充-深3-283242"
+  ],
+  "#2a8cff": [
+    "--样式集合-填充-主蓝"
+  ],
+  "#333e52": [
+    "--样式集合-填充-深4-333e52"
+  ],
+  "#4cd263": [
+    "--样式集合-填充-辅绿"
+  ],
+  "#7e8794": [
+    "--样式集合-填充-浅4-7e8794"
+  ],
+  "#94a3b8": [
+    "--样式集合-填充-浅3-94a3b8"
+  ],
+  "#cbd5e1": [
+    "--样式集合-填充-浅2-cbd5e1"
+  ],
+  "#ff5252": [
+    "--样式集合-填充-辅红"
+  ],
+  "#ff9a2e": [
+    "--样式集合-填充-辅黄"
+  ],
+  "#ffffff": [
+    "--样式集合-填充-浅1-ffffff"
+  ]
 }

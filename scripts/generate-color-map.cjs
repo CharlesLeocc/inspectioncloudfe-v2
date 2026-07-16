@@ -1,41 +1,40 @@
-// ==========================================================================
-// 从 src/styles/tokens/color.less 生成 hex 色值 -> CSS 变量名 的映射表
-// 供 stylelint 自定义规则（stylelint-rules/no-hardcoded-color.cjs）读取使用
-//
-// 映射规则：token 文件里的 @color-primary: #165dff;
-//          对应 theme 层输出的 CSS 变量 --color-primary
-//          （两者变量名后缀完全一致，只是前缀 @ 换成 --，详见 src/styles/theme/light.less）
-//
-// 用法：npm run gen:color-map（token 颜色变化后需要重新生成一次）
-// ==========================================================================
-
 const fs = require('node:fs')
-const path = require('node:path')
+const {
+  COLOR_MAP_FILE,
+  TOKEN_CSS_FILE,
+  generateColorMap,
+  parseTokenCss,
+  serializeColorMap,
+  validateTokenCss,
+} = require('./token-css-utils.cjs')
 
-const TOKEN_FILE = path.resolve(__dirname, '../src/styles/tokens/color.less')
-const OUTPUT_FILE = path.resolve(__dirname, '../stylelint-rules/color-map.json')
+function generateColorMapFile(tokenFile = TOKEN_CSS_FILE) {
+  if (!fs.existsSync(tokenFile)) {
+    throw new Error(`找不到生成的 Token 文件：${tokenFile}`)
+  }
 
-const content = fs.readFileSync(TOKEN_FILE, 'utf-8')
+  const root = parseTokenCss(fs.readFileSync(tokenFile, 'utf-8'), tokenFile)
+  const validation = validateTokenCss(root)
 
-// 匹配形如：@color-primary: #165dff;  或  @color-bg-mask: rgba(0, 0, 0, 0.5);
-const declarationReg = /@([\w-]+):\s*([^;]+);/g
+  if (validation.errors.length) {
+    throw new Error(
+      `Token 文件校验失败：\n${validation.errors.map((error) => `  - ${error}`).join('\n')}`,
+    )
+  }
 
-const colorMap = {}
-let match
-
-while ((match = declarationReg.exec(content))) {
-  const [, name, rawValue] = match
-  const value = rawValue.trim().toLowerCase()
-
-  // 只收录颜色值（hex 或 rgb/rgba），跳过对其他变量的引用（如 @font-family-base 之类非颜色 token 不会出现在本文件，这里做兜底）
-  const isHex = /^#([0-9a-f]{3,8})$/i.test(value)
-  const isRgb = /^rgba?\(/i.test(value)
-  if (!isHex && !isRgb) continue
-
-  colorMap[value] = `--${name}`
+  const colorMap = generateColorMap(validation)
+  fs.writeFileSync(COLOR_MAP_FILE, serializeColorMap(colorMap), 'utf-8')
+  console.log(`[tokens:color-map] 已生成 ${Object.keys(colorMap).length} 项颜色映射`)
+  return colorMap
 }
 
-fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true })
-fs.writeFileSync(OUTPUT_FILE, JSON.stringify(colorMap, null, 2) + '\n', 'utf-8')
+if (require.main === module) {
+  try {
+    generateColorMapFile()
+  } catch (error) {
+    console.error(`[tokens:color-map] ${error.message}`)
+    process.exitCode = 1
+  }
+}
 
-console.log(`[gen:color-map] 已生成 ${Object.keys(colorMap).length} 条色值映射 -> ${OUTPUT_FILE}`)
+module.exports = { generateColorMapFile }
