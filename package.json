@@ -23,6 +23,7 @@
     "@unocss/preset-attributify": "^66.7.5",
     "element-plus": "^2.14.3",
     "less": "^4.6.7",
+    "three": "0.184.0",
     "unocss": "^66.7.5",
     "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^32.1.0",

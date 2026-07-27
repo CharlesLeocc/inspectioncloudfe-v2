@@ -17,7 +17,8 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver({ importStyle: 'less' })],
+      // Element Plus 当前仅提供 CSS / Sass 样式入口，使用默认 CSS 保持组件样式按需加载。
+      resolvers: [ElementPlusResolver()],
     }),
   ],
   css: {
