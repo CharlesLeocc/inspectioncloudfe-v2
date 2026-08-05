@@ -20,6 +20,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@riebo/nova": "^0.0.5",
     "@unocss/preset-attributify": "^66.7.5",
     "element-plus": "^2.14.3",
     "less": "^4.6.7",
